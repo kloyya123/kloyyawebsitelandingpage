@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper-grain: rgba(21, 23, 28, 0.02);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    /* faint paper grain so the light surface reads as stock, not screen-white */
+    background-image: radial-gradient(var(--paper-grain) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  /* Display face uses optical sizing for tighter large-size rendering */
+  .font-display {
+    font-optical-sizing: auto;
+  }
+
+  ::selection {
+    background: #c8801f;
+    color: #f3f0e8;
+  }
+
+  /* Consistent, visible keyboard focus in the brand's amber */
+  :focus-visible {
+    outline: 2px solid #c8801f;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+
+    /* Framer drives the hero signature with JS (immune to the rules above),
+       so force its elements to the fully-resolved state for reduced-motion users. */
+    .reasoning-thread * {
+      opacity: 1 !important;
+      transform: none !important;
+      stroke-dasharray: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+  }
+}
+
+@layer components {
+  /* Eyebrow / dossier tab label — used above section titles */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-slate;
+  }
+
+  /* Section shell keeps horizontal rhythm consistent (avoids selector clashes) */
+  .shell {
+    @apply mx-auto w-full max-w-[1160px] px-6 sm:px-8;
+  }
+
+  /* Legal document prose — measured, editorial, matches the dossier system */
+  .legal {
+    @apply text-[15px] leading-relaxed text-slate;
+  }
+  .legal h2 {
+    @apply mt-12 mb-3 font-display text-xl tracking-tight text-ink;
+  }
+  .legal h2 .num {
+    @apply mr-3 font-mono text-sm text-signal-deep;
+  }
+  .legal p {
+    @apply mt-3;
+  }
+  .legal ul {
+    @apply mt-3 space-y-2 pl-1;
+  }
+  .legal li {
+    @apply flex gap-3;
+  }
+  .legal li::before {
+    content: "—";
+    @apply text-signal-deep;
+  }
+  .legal a {
+    @apply text-ink underline decoration-ink/25 underline-offset-2 hover:decoration-signal;
+  }
+  .legal strong {
+    @apply font-medium text-ink;
+  }
+}

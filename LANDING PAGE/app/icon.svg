@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140">
+  <mask id="k" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="140">
+    <ellipse cx="60" cy="70" rx="52" ry="63" fill="#fff"/>
+    <rect x="30" y="30" width="20" height="80" rx="10" fill="#000"/>
+    <rect x="70" y="30" width="20" height="80" rx="10" fill="#000"/>
+    <path d="M60 50 L64 66 L72 70 L64 74 L60 90 L56 74 L48 70 L56 66 Z" fill="#000"/>
+  </mask>
+  <rect width="120" height="140" fill="#15171C" mask="url(#k)"/>
+</svg>
