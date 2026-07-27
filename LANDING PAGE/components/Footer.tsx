@@ -21,7 +21,7 @@ function TikTokIcon({ className }: { className?: string }) {
 
 const SOCIALS: { label: string; href: string; Icon: ComponentType<{ className?: string }> }[] = [
   { label: "YouTube", href: "https://youtube.com/@kloyyaai", Icon: Youtube },
-  { label: "TikTok", href: "https://www.tiktok.com/@buildingkloyyaai", Icon: TikTokIcon },
+  { label: "TikTok", href: "https://www.tiktok.com/@buildingkloyyai", Icon: TikTokIcon },
   { label: "Instagram", href: "https://www.instagram.com/building_kloyyaai", Icon: Instagram },
 ];
 
@@ -39,7 +39,7 @@ const COLUMNS: { title: string; links: LinkItem[] }[] = [
     links: [
       { label: "Manifesto", href: "/#why" },
       { label: "FAQ", href: "/#faq" },
-      { label: "Contact", href: "mailto:hello@kloyya.com" },
+      { label: "Contact", href: "mailto:contactsupport@kloyya.com" },
     ],
   },
   {
@@ -47,7 +47,8 @@ const COLUMNS: { title: string; links: LinkItem[] }[] = [
     links: [
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
-      { label: "Security", href: "/#faq" },
+      { label: "Trust & Security", href: "/trust" },
+      { label: "Legal Center", href: "/legal" },
     ],
   },
 ];

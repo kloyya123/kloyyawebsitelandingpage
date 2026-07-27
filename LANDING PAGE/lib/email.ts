@@ -72,7 +72,7 @@ export function welcomeEmailHtml(): string {
         </div>
         <p style="margin:16px 0 0;font-size:12px;line-height:1.6;color:#8C93A1;">
           Changed your mind? Just reply with &ldquo;unsubscribe&rdquo; or email
-          <a href="mailto:privacy@kloyya.com" style="color:#A56613;">privacy@kloyya.com</a>
+          <a href="mailto:contactsupport@kloyya.com" style="color:#1D4FBF;">contactsupport@kloyya.com</a>
           and we&apos;ll remove you completely.
         </p>
       </td>

@@ -20,6 +20,8 @@ const routeConfig: Record<
   "/": { priority: 1.0, changeFrequency: "weekly" },
   "/privacy": { priority: 0.6, changeFrequency: "monthly" },
   "/terms": { priority: 0.6, changeFrequency: "monthly" },
+  "/trust": { priority: 0.6, changeFrequency: "monthly" },
+  "/legal": { priority: 0.6, changeFrequency: "monthly" },
 };
 
 const defaultConfig: { priority: number; changeFrequency: ChangeFrequency } = {

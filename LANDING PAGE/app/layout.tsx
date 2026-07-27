@@ -78,14 +78,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    apple: "/logo.png",
   },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#EAE6DC" },
-    { media: "(prefers-color-scheme: dark)", color: "#15171C" },
+    { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0B1220" },
   ],
   colorScheme: "light",
   width: "device-width",

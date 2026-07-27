@@ -17,7 +17,7 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#15171C",
+          backgroundColor: "#0B1220",
           padding: "80px",
           fontFamily: "Georgia, serif",
         }}
@@ -27,7 +27,7 @@ export default function OpengraphImage() {
             display: "flex",
             alignItems: "center",
             gap: "20px",
-            color: "#EAE6DC",
+            color: "#FFFFFF",
             fontSize: 40,
             fontWeight: 600,
             letterSpacing: "-0.02em",
@@ -38,7 +38,7 @@ export default function OpengraphImage() {
               width: 44,
               height: 44,
               borderRadius: 12,
-              backgroundColor: "#C8801F",
+              backgroundColor: "#2F6FED",
             }}
           />
           Kloyya
@@ -47,7 +47,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
           <div
             style={{
-              color: "#EAE6DC",
+              color: "#FFFFFF",
               fontSize: 72,
               lineHeight: 1.05,
               fontWeight: 600,
@@ -59,7 +59,7 @@ export default function OpengraphImage() {
           </div>
           <div
             style={{
-              color: "#D9A441",
+              color: "#6FA0FF",
               fontSize: 32,
               letterSpacing: "0.02em",
               fontFamily: "monospace",

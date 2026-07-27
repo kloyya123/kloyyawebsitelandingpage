@@ -1,27 +1,27 @@
 /**
- * Kloyya mark — an oval with two arcs framing a central sparkle.
- * Drawn as a single currentColor shape via a mask, so it inherits text color
- * (works on paper or ink) and stays crisp at any size.
+ * Kloyya mark — a six-petal pinwheel, unevenly spaced.
+ * Single currentColor shape so it inherits text color and stays crisp at any size.
  */
+const PETAL_ANGLES = [-95, -48, 13, 64, 126, 180];
+
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 120 140"
+      viewBox="0 0 200 200"
       className={className}
       role="img"
       aria-label="Kloyya"
-      fill="none"
+      fill="currentColor"
     >
-      <mask id="kloyya-mark" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="140">
-        {/* the oval body is the mark */}
-        <ellipse cx="60" cy="70" rx="52" ry="63" fill="#fff" />
-        {/* two arcs punched out */}
-        <rect x="30" y="30" width="20" height="80" rx="10" fill="#000" />
-        <rect x="70" y="30" width="20" height="80" rx="10" fill="#000" />
-        {/* the sparkle joins the two arcs into one negative shape */}
-        <path d="M60 50 L64 66 L72 70 L64 74 L60 90 L56 74 L48 70 L56 66 Z" fill="#000" />
-      </mask>
-      <rect width="120" height="140" fill="currentColor" mask="url(#kloyya-mark)" />
+      <g transform="translate(100,100)">
+        {PETAL_ANGLES.map((angle) => (
+          <path
+            key={angle}
+            d="M0,0 C22,-16 62,-24 88,0 C62,24 22,16 0,0 Z"
+            transform={`rotate(${angle})`}
+          />
+        ))}
+      </g>
     </svg>
   );
 }

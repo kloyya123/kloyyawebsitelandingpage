@@ -8,25 +8,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // "The Briefing" — deep-ink folio wrapping warm-paper briefing surfaces
+        // Clean, airy sky-blue system — white surfaces, soft blue accents
         ink: {
-          DEFAULT: "#15171C", // folio / dark surfaces
-          2: "#1C1F26", // raised panels on ink
-          3: "#252A33", // hairline-lifted panel on ink
+          DEFAULT: "#0B1220", // primary text / dark surfaces
+          2: "#111A2C",
+          3: "#1B2740",
         },
         paper: {
-          DEFAULT: "#EAE6DC", // primary light briefing surface (greige)
-          raised: "#F3F0E8", // cards / insets on paper
-          sunk: "#E1DCD0", // recessed wells on paper
+          DEFAULT: "#FFFFFF", // primary light surface
+          raised: "#F6F8FC", // cards / insets
+          sunk: "#EEF2F8", // recessed wells / alt sections
         },
         signal: {
-          DEFAULT: "#C8801F", // burnt-amber annotation ink — the one accent
-          soft: "#D9A441", // lighter amber for fills / on-ink marks
-          deep: "#A56613", // deeper amber for text on paper (AA contrast)
+          DEFAULT: "#2F6FED", // primary blue accent
+          soft: "#6FA0FF", // lighter blue for fills
+          deep: "#1D4FBF", // deeper blue for text/CTA on white (AA contrast)
         },
         slate: {
-          DEFAULT: "#545A67", // muted text on paper
-          ink: "#8C93A1", // muted text on ink
+          DEFAULT: "#5B6472", // muted text on paper
+          ink: "#8C93A1",
+        },
+        sky: {
+          50: "#F3F8FF",
+          100: "#E6F0FF",
+          200: "#CFE3FF",
         },
       },
       fontFamily: {

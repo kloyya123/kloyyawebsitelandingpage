@@ -87,8 +87,8 @@ export default function WaitlistForm({
               <input
                 type="email"
                 autoComplete="email"
-                placeholder="Your work email"
-                aria-label="Work email"
+                placeholder="Your email"
+                aria-label="Email"
                 aria-invalid={!!errors.email}
                 disabled={isSubmitting}
                 {...register("email")}

@@ -1,10 +1,12 @@
 import Masthead from "@/components/Masthead";
 import Hero from "@/components/Hero";
-import Pipeline from "@/components/Pipeline";
-import Integrations from "@/components/Integrations";
-import SprintLedger from "@/components/SprintLedger";
-import Manifesto from "@/components/Manifesto";
+import CapabilityGrid from "@/components/CapabilityGrid";
+import BenchmarkChart from "@/components/BenchmarkChart";
+import FeatureSpotlight from "@/components/FeatureSpotlight";
+import AppShowcase from "@/components/AppShowcase";
+import PrivacyGrid from "@/components/PrivacyGrid";
 import Faq from "@/components/Faq";
+import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
 
 export default function Page() {
@@ -13,11 +15,13 @@ export default function Page() {
       <Masthead />
       <main>
         <Hero />
-        <Pipeline />
-        <Integrations />
-        <SprintLedger />
-        <Manifesto />
+        <CapabilityGrid />
+        <BenchmarkChart />
+        <FeatureSpotlight />
+        <AppShowcase />
+        <PrivacyGrid />
         <Faq />
+        <CtaBand />
       </main>
       <Footer />
     </div>

@@ -3,19 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --paper-grain: rgba(21, 23, 28, 0.02);
-  }
-
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
   }
 
   body {
-    /* faint paper grain so the light surface reads as stock, not screen-white */
-    background-image: radial-gradient(var(--paper-grain) 1px, transparent 1px);
-    background-size: 4px 4px;
+    background: #ffffff;
   }
 
   /* Display face uses optical sizing for tighter large-size rendering */
@@ -24,13 +18,13 @@
   }
 
   ::selection {
-    background: #c8801f;
-    color: #f3f0e8;
+    background: #2f6fed;
+    color: #ffffff;
   }
 
-  /* Consistent, visible keyboard focus in the brand's amber */
+  /* Consistent, visible keyboard focus in the brand's blue */
   :focus-visible {
-    outline: 2px solid #c8801f;
+    outline: 2px solid #2f6fed;
     outline-offset: 2px;
     border-radius: 2px;
   }
