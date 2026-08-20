@@ -36,6 +36,15 @@ const CARDS = [
   },
 ];
 
+const INBOX = [
+  { name: "Christopher", initial: "C", subject: "Re: Q3 board deck — one more pass", time: "9m" },
+  { name: "Whelman", initial: "W", subject: "Can you approve the vendor invoice?", time: "22m" },
+  { name: "John", initial: "J", subject: "Client call moved to 4pm today", time: "41m" },
+  { name: "Ram", initial: "R", subject: "Shared: updated pricing sheet", time: "1h" },
+  { name: "Sahil", initial: "S", subject: "Design review — 2 things need your call", time: "2h" },
+  { name: "Mark", initial: "M", subject: "Following up on the intro you made", time: "3h" },
+];
+
 export default function BriefingMockup() {
   return (
     <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-lifted">
@@ -111,6 +120,39 @@ export default function BriefingMockup() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* inbox */}
+          <div className="mt-1 rounded-xl border border-ink/8 bg-white shadow-sm">
+            <div className="flex items-center justify-between border-b border-ink/8 px-4 py-2.5">
+              <p className="text-sm font-medium text-ink">Inbox</p>
+              <span className="font-mono text-[11px] text-slate">
+                {INBOX.length} recent
+              </span>
+            </div>
+            <div className="divide-y divide-ink/6">
+              {INBOX.map((m) => (
+                <div
+                  key={m.name}
+                  className="flex items-center gap-3 px-4 py-2.5 text-left"
+                >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[11px] font-medium text-signal-deep">
+                    {m.initial}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-[12px] font-medium text-ink">
+                      {m.name}
+                    </p>
+                    <p className="truncate text-[11px] text-slate">
+                      {m.subject}
+                    </p>
+                  </div>
+                  <span className="shrink-0 font-mono text-[10px] text-slate">
+                    {m.time}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
