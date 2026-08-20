@@ -1,40 +1,53 @@
-import type { ComponentType } from "react";
-import { Mail, Slack, Linkedin, Trello, HardDrive } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+import {
+  GmailIcon,
+  SlackIcon,
+  WhatsAppIcon,
+  LinkedInIcon,
+  NotionIcon,
+  JiraIcon,
+  LinearIcon,
+  SalesforceIcon,
+  HubSpotIcon,
+  OutlookIcon,
+} from "./BrandIcons";
 
-type Tile =
-  | { name: string; bg: string; fg: string; Icon: ComponentType<{ className?: string }> }
-  | { name: string; bg: string; fg: string; letter: string };
-
-const TILES: Tile[] = [
-  { name: "Gmail", bg: "bg-red-50", fg: "text-red-500", Icon: Mail },
-  { name: "Slack", bg: "bg-[#4A154B]/10", fg: "text-[#4A154B]", Icon: Slack },
-  { name: "WhatsApp", bg: "bg-[#25D366]/15", fg: "text-[#128C7E]", letter: "W" },
-  { name: "Notion", bg: "bg-ink/5", fg: "text-ink", letter: "N" },
-  { name: "Jira", bg: "bg-[#0052CC]/10", fg: "text-[#0052CC]", letter: "J" },
-  { name: "Linear", bg: "bg-signal/10", fg: "text-signal-deep", letter: "L" },
-  { name: "Salesforce", bg: "bg-sky-100", fg: "text-sky-600", letter: "SF" },
-  { name: "HubSpot", bg: "bg-orange-50", fg: "text-orange-500", letter: "H" },
-  { name: "LinkedIn", bg: "bg-[#0A66C2]/10", fg: "text-[#0A66C2]", Icon: Linkedin },
-  { name: "Trello", bg: "bg-[#0079BF]/10", fg: "text-[#0079BF]", Icon: Trello },
-  { name: "Drive", bg: "bg-emerald-50", fg: "text-emerald-600", Icon: HardDrive },
+const TOOLS: { name: string; Icon: ComponentType<SVGProps<SVGSVGElement>> }[] = [
+  { name: "Gmail", Icon: GmailIcon },
+  { name: "Slack", Icon: SlackIcon },
+  { name: "WhatsApp", Icon: WhatsAppIcon },
+  { name: "LinkedIn", Icon: LinkedInIcon },
+  { name: "Notion", Icon: NotionIcon },
+  { name: "Jira", Icon: JiraIcon },
+  { name: "Linear", Icon: LinearIcon },
+  { name: "Salesforce", Icon: SalesforceIcon },
+  { name: "HubSpot", Icon: HubSpotIcon },
+  { name: "Outlook", Icon: OutlookIcon },
 ];
 
 export default function IntegrationLogos() {
+  const row = [...TOOLS, ...TOOLS];
   return (
-    <div className="mx-auto mt-10 flex max-w-2xl flex-wrap items-center justify-center gap-3">
-      {TILES.map((t) => (
-        <div
-          key={t.name}
-          title={t.name}
-          className={`flex h-12 w-12 items-center justify-center rounded-xl ${t.bg} ${t.fg} shadow-sm ring-1 ring-inset ring-ink/5`}
-        >
-          {"Icon" in t ? (
-            <t.Icon className="h-5 w-5" />
-          ) : (
-            <span className="text-[13px] font-semibold">{t.letter}</span>
-          )}
-        </div>
-      ))}
+    <div className="relative mt-10 overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
+      <div className="flex w-max animate-[scroll_28s_linear_infinite] items-center gap-10">
+        {row.map((t, i) => (
+          <div
+            key={`${t.name}-${i}`}
+            className="flex shrink-0 items-center gap-2 opacity-80 transition-opacity hover:opacity-100"
+          >
+            <t.Icon className="h-6 w-6 shrink-0" />
+            <span className="text-sm font-medium text-ink/70">{t.name}</span>
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @keyframes scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 }

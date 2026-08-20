@@ -2,6 +2,7 @@ import Masthead from "@/components/Masthead";
 import Hero from "@/components/Hero";
 import Overview from "@/components/Overview";
 import CapabilityGrid from "@/components/CapabilityGrid";
+import GlowIntegrations from "@/components/GlowIntegrations";
 import BenchmarkChart from "@/components/BenchmarkChart";
 import FeatureSpotlight from "@/components/FeatureSpotlight";
 import PrivacyGrid from "@/components/PrivacyGrid";
@@ -17,6 +18,7 @@ export default function Page() {
         <Hero />
         <Overview />
         <CapabilityGrid />
+        <GlowIntegrations />
         <BenchmarkChart />
         <FeatureSpotlight />
         <PrivacyGrid />
