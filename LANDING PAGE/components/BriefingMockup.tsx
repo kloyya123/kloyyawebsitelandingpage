@@ -1,10 +1,18 @@
-import { Mail, Slack, MessageCircle, FileText, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import {
+  GmailIcon,
+  SlackIcon,
+  WhatsAppIcon,
+  NotionIcon,
+  JiraIcon,
+} from "./BrandIcons";
 
-const SIDEBAR = [
-  { label: "Mail", Icon: Mail },
-  { label: "Slack", Icon: Slack },
-  { label: "WhatsApp", Icon: MessageCircle },
-  { label: "Docs", Icon: FileText },
+const CONNECTED = [
+  { label: "Gmail", Icon: GmailIcon },
+  { label: "Slack", Icon: SlackIcon },
+  { label: "WhatsApp", Icon: WhatsAppIcon },
+  { label: "Notion", Icon: NotionIcon },
+  { label: "Jira", Icon: JiraIcon },
 ];
 
 const CARDS = [
@@ -43,18 +51,26 @@ export default function BriefingMockup() {
       </div>
 
       {/* body */}
-      <div className="grid gap-5 bg-sky-50/60 p-6 sm:grid-cols-[56px_1fr] sm:p-6">
-        {/* icon rail */}
-        <div className="hidden flex-col items-center gap-3 sm:flex">
-          {SIDEBAR.map(({ label, Icon }) => (
-            <div
-              key={label}
-              title={label}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-ink/70 shadow-sm"
-            >
-              <Icon className="h-4 w-4" />
-            </div>
-          ))}
+      <div className="grid gap-5 bg-sky-50/60 p-6 sm:grid-cols-[148px_1fr] sm:p-6">
+        {/* connected tools panel */}
+        <div className="hidden flex-col gap-3 sm:flex">
+          <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-slate">
+            Connected
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {CONNECTED.map(({ label, Icon }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2 rounded-lg bg-white px-2.5 py-2 shadow-sm"
+              >
+                <Icon className="h-4 w-4 shrink-0" />
+                <span className="flex-1 truncate text-[11px] text-ink/80">
+                  {label}
+                </span>
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex flex-col gap-4">

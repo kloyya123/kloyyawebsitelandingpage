@@ -1,6 +1,5 @@
 import Masthead from "@/components/Masthead";
 import Hero from "@/components/Hero";
-import Overview from "@/components/Overview";
 import CapabilityGrid from "@/components/CapabilityGrid";
 import GlowIntegrations from "@/components/GlowIntegrations";
 import BenchmarkChart from "@/components/BenchmarkChart";
@@ -16,7 +15,6 @@ export default function Page() {
       <Masthead />
       <main>
         <Hero />
-        <Overview />
         <CapabilityGrid />
         <GlowIntegrations />
         <BenchmarkChart />

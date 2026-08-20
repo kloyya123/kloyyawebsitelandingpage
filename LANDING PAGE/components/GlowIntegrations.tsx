@@ -5,14 +5,23 @@ import {
   LinkedInIcon,
   NotionIcon,
   OutlookIcon,
+  JiraIcon,
+  LinearIcon,
+  SalesforceIcon,
+  HubSpotIcon,
 } from "./BrandIcons";
 
 const FLOATERS = [
-  { Icon: GmailIcon, glow: "rgba(66,133,244,0.35)", className: "right-[26%] top-6 h-14 w-14" },
-  { Icon: WhatsAppIcon, glow: "rgba(37,211,102,0.35)", className: "right-6 top-24 h-16 w-16" },
-  { Icon: SlackIcon, glow: "rgba(54,197,240,0.32)", className: "left-[30%] top-40 h-14 w-14" },
-  { Icon: LinkedInIcon, glow: "rgba(10,102,194,0.35)", className: "right-[8%] top-56 h-12 w-12" },
-  { Icon: OutlookIcon, glow: "rgba(15,108,214,0.32)", className: "right-[30%] top-72 h-16 w-16" },
+  { Icon: GmailIcon, glow: "rgba(66,133,244,0.35)", className: "right-[30%] top-2 h-14 w-14", delay: "0s" },
+  { Icon: WhatsAppIcon, glow: "rgba(37,211,102,0.35)", className: "right-4 top-16 h-16 w-16", delay: "0.6s" },
+  { Icon: SlackIcon, glow: "rgba(54,197,240,0.32)", className: "left-[34%] top-32 h-14 w-14", delay: "1.2s" },
+  { Icon: LinkedInIcon, glow: "rgba(10,102,194,0.35)", className: "right-[6%] top-44 h-12 w-12", delay: "0.3s" },
+  { Icon: OutlookIcon, glow: "rgba(15,108,214,0.32)", className: "right-[32%] top-60 h-16 w-16", delay: "0.9s" },
+  { Icon: NotionIcon, glow: "rgba(15,23,42,0.22)", className: "left-[8%] top-6 h-12 w-12", delay: "1.5s" },
+  { Icon: JiraIcon, glow: "rgba(0,82,204,0.32)", className: "left-[4%] top-52 h-14 w-14", delay: "0.4s" },
+  { Icon: LinearIcon, glow: "rgba(94,106,210,0.32)", className: "left-[18%] top-72 h-12 w-12", delay: "1s" },
+  { Icon: SalesforceIcon, glow: "rgba(0,161,224,0.32)", className: "right-[16%] top-2 h-12 w-12", delay: "0.7s" },
+  { Icon: HubSpotIcon, glow: "rgba(255,122,89,0.32)", className: "left-[46%] top-4 h-12 w-12", delay: "1.3s" },
 ];
 
 export default function GlowIntegrations() {
@@ -36,17 +45,18 @@ export default function GlowIntegrations() {
             <span className="text-signal-deep">one</span> briefing.
           </h2>
           <p className="mt-5 max-w-md text-slate">
-            Kloyya connects to Gmail, Outlook, Slack, WhatsApp, and LinkedIn —
-            with more integrations shipping regularly.
+            Kloyya connects to Gmail, Outlook, Slack, WhatsApp, LinkedIn,
+            Notion, Jira, Linear, Salesforce, and HubSpot — with more
+            integrations shipping regularly.
           </p>
         </div>
 
-        <div className="relative hidden h-80 lg:block">
-          {FLOATERS.map(({ Icon, glow, className }, i) => (
+        <div className="relative hidden h-96 lg:block">
+          {FLOATERS.map(({ Icon, glow, className, delay }, i) => (
             <div
               key={i}
-              className={`absolute rounded-2xl bg-white p-3 ring-1 ring-inset ring-ink/5 ${className}`}
-              style={{ boxShadow: `0 0 44px ${glow}` }}
+              className={`absolute animate-[float_6s_ease-in-out_infinite] rounded-2xl bg-white p-3 ring-1 ring-inset ring-ink/5 ${className}`}
+              style={{ boxShadow: `0 0 44px ${glow}`, animationDelay: delay }}
             >
               <Icon className="h-full w-full" />
             </div>
@@ -66,6 +76,13 @@ export default function GlowIntegrations() {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+      `}</style>
     </section>
   );
 }
