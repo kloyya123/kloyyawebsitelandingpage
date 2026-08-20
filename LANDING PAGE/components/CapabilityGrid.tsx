@@ -52,7 +52,7 @@ function DecisionScreen() {
     <div className="flex h-40 flex-col justify-center gap-2 rounded-2xl bg-gradient-to-br from-sky-200 via-white to-sky-100 p-4">
       <div className="rounded-lg border border-signal/30 bg-white p-3 shadow-sm">
         <div className="flex items-center justify-between">
-          <p className="text-[11px] font-medium text-ink">Meridian renewal</p>
+          <p className="text-[11px] font-medium text-ink">Sarah Chen's renewal</p>
           <span className="rounded-full bg-signal/10 px-2 py-0.5 text-[9px] font-medium text-signal-deep">
             Needs you
           </span>

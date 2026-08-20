@@ -10,7 +10,7 @@ const SIDEBAR = [
 const CARDS = [
   {
     tag: "Slack · #ops",
-    title: "Renewal at risk — Meridian account",
+    title: "Renewal at risk — Sarah Chen's account",
     detail: "Contract lapses in 6 days, CS thread has gone quiet since Tuesday.",
     from: "from-rose-100",
   },
