@@ -109,12 +109,16 @@ export const FAQ = [
     a: "Founders, VPs, and cross-border operators running five or more active channels — Slack, email, WhatsApp, Notion, Jira, CRM — who lose hours to context switching every day.",
   },
   {
-    q: "Why no waitlist counter?",
-    a: "Because a number invented to create urgency tells you nothing true. Instead we publish the real development ledger below — what's shipped, what's in QA, what's being built right now.",
+    q: "Which tools does Kloyya connect to?",
+    a: "Gmail, Slack, WhatsApp, Notion, Jira, Linear, Salesforce, HubSpot, and more — through scoped OAuth you control and can revoke at any time. More integrations ship regularly.",
   },
   {
-    q: "Is joining the waitlist free?",
-    a: "Yes. Early access is free and carries no obligation. You'll get build updates and a private beta key when your cohort opens.",
+    q: "Will Kloyya act on things without asking me?",
+    a: "No. Kloyya surfaces the decision and drafts the response — you approve, edit, or dismiss it. Nothing sends or executes on your behalf without your sign-off.",
+  },
+  {
+    q: "Why no waitlist counter?",
+    a: "Because a number invented to create urgency tells you nothing true. Instead we publish the real development ledger below — what's shipped, what's in QA, what's being built right now.",
   },
   {
     q: "How do you handle my data?",

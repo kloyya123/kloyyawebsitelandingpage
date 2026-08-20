@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import CapabilityGrid from "@/components/CapabilityGrid";
 import BenchmarkChart from "@/components/BenchmarkChart";
 import FeatureSpotlight from "@/components/FeatureSpotlight";
-import AppShowcase from "@/components/AppShowcase";
 import PrivacyGrid from "@/components/PrivacyGrid";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
@@ -18,7 +17,6 @@ export default function Page() {
         <CapabilityGrid />
         <BenchmarkChart />
         <FeatureSpotlight />
-        <AppShowcase />
         <PrivacyGrid />
         <Faq />
         <CtaBand />
