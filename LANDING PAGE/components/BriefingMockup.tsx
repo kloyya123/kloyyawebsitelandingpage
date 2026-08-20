@@ -15,27 +15,6 @@ const CONNECTED = [
   { label: "Jira", Icon: JiraIcon },
 ];
 
-const CARDS = [
-  {
-    tag: "Slack · #ops",
-    title: "Renewal at risk — Sarah Chen's account",
-    detail: "Contract lapses in 6 days, CS thread has gone quiet since Tuesday.",
-    from: "from-rose-100",
-  },
-  {
-    tag: "Jira · SPRINT-42",
-    title: "Blocker flagged on checkout migration",
-    detail: "Backend owner is out; nobody has picked up the ticket in 2 days.",
-    from: "from-amber-100",
-  },
-  {
-    tag: "Gmail",
-    title: "Investor update needs a number",
-    detail: "Reply is drafted — waiting on Q3 churn figure from finance.",
-    from: "from-sky-100",
-  },
-];
-
 const INBOX = [
   { name: "Christopher", initial: "C", subject: "Re: Q3 board deck — one more pass", time: "9m" },
   { name: "Whelman", initial: "W", subject: "Can you approve the vendor invoice?", time: "22m" },
@@ -91,35 +70,6 @@ export default function BriefingMockup() {
             <span className="ml-auto rounded-full bg-ink px-3 py-1 text-[11px] font-medium text-white">
               Ask
             </span>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <p className="text-sm font-medium text-ink">Today, prioritized</p>
-            <span className="font-mono text-[11px] text-signal-deep">
-              3 need you
-            </span>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-3">
-            {CARDS.map((c) => (
-              <div
-                key={c.title}
-                className="overflow-hidden rounded-xl border border-ink/8 bg-white text-left shadow-sm"
-              >
-                <div className={`h-12 bg-gradient-to-r ${c.from} to-white`} />
-                <div className="p-3.5">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-signal-deep">
-                    {c.tag}
-                  </p>
-                  <p className="mt-1.5 text-[13px] font-medium leading-snug text-ink">
-                    {c.title}
-                  </p>
-                  <p className="mt-1 text-[11px] leading-relaxed text-slate">
-                    {c.detail}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
 
           {/* inbox */}
