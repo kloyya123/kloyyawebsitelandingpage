@@ -1,28 +1,16 @@
-/**
- * Kloyya mark — a six-petal pinwheel, unevenly spaced.
- * Single currentColor shape so it inherits text color and stays crisp at any size.
- */
-const PETAL_ANGLES = [-95, -48, 13, 64, 126, 180];
+import Image from "next/image";
 
+/** Kloyya mark — the six-petal pinwheel brand logo. */
 export function LogoMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 200 200"
-      className={className}
-      role="img"
-      aria-label="Kloyya"
-      fill="currentColor"
-    >
-      <g transform="translate(100,100)">
-        {PETAL_ANGLES.map((angle) => (
-          <path
-            key={angle}
-            d="M0,0 C22,-16 62,-24 88,0 C62,24 22,16 0,0 Z"
-            transform={`rotate(${angle})`}
-          />
-        ))}
-      </g>
-    </svg>
+    <Image
+      src="/logo.png"
+      alt="Kloyya"
+      width={200}
+      height={214}
+      priority
+      className={`w-auto object-contain ${className ?? ""}`}
+    />
   );
 }
 
