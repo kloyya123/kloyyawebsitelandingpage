@@ -92,6 +92,35 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: SITE_NAME,
+  url: SITE_URL,
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web, macOS, Windows, iOS, Android",
+  description:
+    "Kloyya is an AI-powered Chief of Staff that reads across your inbox, chats, tasks, and CRM, connects the threads, and surfaces the decision that needs you — not another notification.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+    description: "Free waitlist access",
+  },
+  featureList: [
+    "Unified briefing across Gmail, Slack, WhatsApp, Notion, Jira, Linear, Salesforce, and HubSpot",
+    "Cross-app thread linking that connects a conversation to the ticket and the email blocking it",
+    "AI-drafted replies and decisions that require explicit approval before sending",
+    "Memory that recalls prior context so you never repeat yourself",
+    "Scoped OAuth integrations you control and can revoke at any time",
+  ],
+  publisher: {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -102,7 +131,14 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${GeistSans.variable} ${GeistMono.variable}`}
     >
-      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
+      <body className="bg-paper font-sans text-ink antialiased">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(STRUCTURED_DATA) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

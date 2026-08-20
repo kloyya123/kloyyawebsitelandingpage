@@ -1,5 +1,6 @@
 import Masthead from "@/components/Masthead";
 import Hero from "@/components/Hero";
+import Overview from "@/components/Overview";
 import CapabilityGrid from "@/components/CapabilityGrid";
 import BenchmarkChart from "@/components/BenchmarkChart";
 import FeatureSpotlight from "@/components/FeatureSpotlight";
@@ -14,6 +15,7 @@ export default function Page() {
       <Masthead />
       <main>
         <Hero />
+        <Overview />
         <CapabilityGrid />
         <BenchmarkChart />
         <FeatureSpotlight />
