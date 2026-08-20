@@ -4,7 +4,6 @@ import CapabilityGrid from "@/components/CapabilityGrid";
 import GlowIntegrations from "@/components/GlowIntegrations";
 import BenchmarkChart from "@/components/BenchmarkChart";
 import FeatureSpotlight from "@/components/FeatureSpotlight";
-import PrivacyGrid from "@/components/PrivacyGrid";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
 import Footer from "@/components/Footer";
@@ -19,7 +18,6 @@ export default function Page() {
         <GlowIntegrations />
         <BenchmarkChart />
         <FeatureSpotlight />
-        <PrivacyGrid />
         <Faq />
         <CtaBand />
       </main>
