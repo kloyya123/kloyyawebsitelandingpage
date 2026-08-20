@@ -9,7 +9,9 @@ const MAX = 100;
 
 export default function BenchmarkChart() {
   return (
-    <section className="bg-paper-sunk py-24 sm:py-28">
+    <section className="relative overflow-hidden bg-paper-sunk py-24 sm:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-72 w-[36rem] -translate-x-1/2 rounded-full bg-sky-200/40 blur-3xl" />
+
       <div className="shell text-center">
         <p className="eyebrow text-signal-deep">Built to be measured</p>
         <h2 className="mt-3 font-display text-3xl font-normal tracking-tightest text-ink sm:text-4xl">

@@ -2,7 +2,10 @@ import { PIPELINE } from "@/lib/content";
 
 export default function FeatureSpotlight() {
   return (
-    <section className="bg-white py-24 sm:py-28">
+    <section className="relative overflow-hidden bg-white py-24 sm:py-28">
+      <div className="pointer-events-none absolute -right-32 top-10 -z-10 h-80 w-80 rounded-full bg-sky-200/50 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 -z-10 h-64 w-64 rounded-full bg-sky-100/70 blur-3xl" />
+
       <div className="shell grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="eyebrow text-signal-deep">Memory that knows the work</p>

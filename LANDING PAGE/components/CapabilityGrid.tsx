@@ -81,7 +81,10 @@ const CAPABILITIES = [
 
 export default function CapabilityGrid() {
   return (
-    <section id="product-core" className="bg-white py-24 sm:py-28">
+    <section id="product-core" className="relative overflow-hidden bg-white py-24 sm:py-28">
+      <div className="pointer-events-none absolute -left-32 top-0 -z-10 h-80 w-80 rounded-full bg-sky-200/50 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 -z-10 h-72 w-72 rounded-full bg-sky-100/70 blur-3xl" />
+
       <div className="shell text-center">
         <p className="eyebrow text-signal-deep">Unlimited capability</p>
         <h2 className="mt-3 font-display text-3xl font-normal tracking-tightest text-ink sm:text-4xl">

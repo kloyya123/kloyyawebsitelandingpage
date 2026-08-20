@@ -3,7 +3,9 @@ import { FAQ } from "@/lib/content";
 
 export default function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 py-20 sm:py-28">
+    <section id="faq" className="relative overflow-hidden scroll-mt-20 py-20 sm:py-28">
+      <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-72 w-[32rem] -translate-x-1/2 rounded-full bg-sky-100/60 blur-3xl" />
+
       <div className="shell max-w-3xl">
         <p className="eyebrow mb-4 text-center">Security & questions</p>
         <h2 className="text-center font-display text-[2rem] leading-tight tracking-tightest text-ink sm:text-[2.6rem]">

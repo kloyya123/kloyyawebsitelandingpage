@@ -19,7 +19,10 @@ const ITEMS = [
 
 export default function PrivacyGrid() {
   return (
-    <section id="privacy" className="bg-paper-sunk py-24 sm:py-28">
+    <section id="privacy" className="relative overflow-hidden bg-paper-sunk py-24 sm:py-28">
+      <div className="pointer-events-none absolute -right-28 top-0 -z-10 h-80 w-80 rounded-full bg-sky-200/40 blur-3xl" />
+      <div className="pointer-events-none absolute -left-28 bottom-0 -z-10 h-72 w-72 rounded-full bg-sky-100/60 blur-3xl" />
+
       <div className="shell text-center">
         <p className="eyebrow text-signal-deep">Privacy and control</p>
         <h2 className="mt-3 font-display text-3xl font-normal tracking-tightest text-ink sm:text-4xl">
