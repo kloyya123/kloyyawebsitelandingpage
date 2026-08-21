@@ -65,6 +65,12 @@ export default function Masthead() {
 
         <div className="flex items-center gap-2">
           <a
+            href="https://app.kloyya.com"
+            className="hidden text-sm text-slate transition-colors hover:text-ink sm:inline"
+          >
+            Login
+          </a>
+          <a
             href="/#waitlist"
             className="inline-flex h-9 items-center rounded-full bg-ink px-4 text-xs font-medium text-paper transition-transform hover:-translate-y-px active:translate-y-0"
           >
@@ -100,6 +106,15 @@ export default function Masthead() {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="https://app.kloyya.com"
+                onClick={() => setOpen(false)}
+                className="block py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
+              >
+                Login
+              </a>
+            </li>
           </ul>
         </nav>
       )}
