@@ -65,7 +65,7 @@ export default function Masthead() {
 
         <div className="flex items-center gap-2">
           <a
-            href="https://app.kloyya.com"
+            href="https://kloyya.com"
             className="hidden text-sm text-slate transition-colors hover:text-ink sm:inline"
           >
             Login
@@ -108,7 +108,7 @@ export default function Masthead() {
             ))}
             <li>
               <a
-                href="https://app.kloyya.com"
+                href="https://kloyya.com"
                 onClick={() => setOpen(false)}
                 className="block py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
               >
