@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
+const APP_URL = "https://kloyya-web-app-web.vercel.app";
+
 const LINKS = [
   { label: "Product Core", href: "/#product-core" },
   { label: "How it works", href: "/#integrations" },
@@ -17,19 +19,28 @@ export default function Masthead() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
+
     onScroll();
+
     window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // The sheet covers the page — close it on Escape and keep the page from
-  // scrolling underneath while it is open.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
     window.addEventListener("keydown", onKey);
+
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
@@ -46,45 +57,58 @@ export default function Masthead() {
     >
       <div className="shell flex h-16 items-center justify-between">
         <div className="flex items-center gap-4">
-          <a href="/#top" aria-label="Kloyya — home" className="text-ink">
+          <a
+            href="/#top"
+            aria-label="Kloyya — home"
+            className="text-ink"
+          >
             <Logo />
           </a>
         </div>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {LINKS.map((l) => (
+          {LINKS.map((link) => (
             <a
-              key={l.href}
-              href={l.href}
+              key={link.href}
+              href={link.href}
               className="text-sm text-slate transition-colors hover:text-ink"
             >
-              {l.label}
+              {link.label}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
+          {/* Desktop Login */}
           <a
-            href="https://kloyya.com"
+            href={`${APP_URL}/login`}
             className="hidden text-sm text-slate transition-colors hover:text-ink sm:inline"
           >
             Login
           </a>
+
+          {/* Desktop Request Access */}
           <a
-            href="/#waitlist"
+            href={`${APP_URL}/login`}
             className="inline-flex h-9 items-center rounded-full bg-ink px-4 text-xs font-medium text-paper transition-transform hover:-translate-y-px active:translate-y-0"
           >
             Request Access
           </a>
+
+          {/* Mobile menu */}
           <button
             type="button"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             className="-mr-1.5 flex h-9 w-9 items-center justify-center rounded-full text-ink md:hidden"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </button>
         </div>
       </div>
@@ -95,24 +119,37 @@ export default function Masthead() {
           className="border-t border-ink/10 bg-paper/95 backdrop-blur-md md:hidden"
         >
           <ul className="shell flex flex-col py-2">
-            {LINKS.map((l) => (
-              <li key={l.href}>
+            {LINKS.map((link) => (
+              <li key={link.href}>
                 <a
-                  href={l.href}
+                  href={link.href}
                   onClick={() => setOpen(false)}
                   className="block border-b border-ink/8 py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
                 >
-                  {l.label}
+                  {link.label}
                 </a>
               </li>
             ))}
+
+            {/* Mobile Login */}
             <li>
               <a
-                href="https://kloyya.com"
+                href={`${APP_URL}/login`}
                 onClick={() => setOpen(false)}
-                className="block py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
+                className="block border-b border-ink/8 py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
               >
                 Login
+              </a>
+            </li>
+
+            {/* Mobile Request Access */}
+            <li>
+              <a
+                href={`${APP_URL}/login`}
+                onClick={() => setOpen(false)}
+                className="block py-3.5 text-[15px] font-medium text-ink transition-colors hover:text-signal-deep"
+              >
+                Request Access
               </a>
             </li>
           </ul>
