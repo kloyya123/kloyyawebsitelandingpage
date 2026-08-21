@@ -3,18 +3,7 @@
  * No synthetic counters live here — only real, editable state.
  */
 
-export const SIGNAL_NODES = [
-  "Slack",
-  "Gmail",
-  "Jira",
-  "Notion",
-  "WhatsApp",
-  "Salesforce",
-  "Linear",
-  "HubSpot",
-] as const;
-
-/** Integration directory — grouped, understated (no rainbow logos). */
+/** Integration directory — grouped. `AgentFlow` reads a connector's group from here. */
 export const INTEGRATION_GROUPS: {
   group: string;
   note: string;
@@ -118,7 +107,7 @@ export const FAQ = [
   },
   {
     q: "Why no waitlist counter?",
-    a: "Because a number invented to create urgency tells you nothing true. Instead we publish the real development ledger below — what's shipped, what's in QA, what's being built right now.",
+    a: "Because a number invented to create urgency tells you nothing true. Instead we publish the real development ledger on this page — what's shipped, what's in QA, what's being built right now — alongside the metrics we hold ourselves to.",
   },
   {
     q: "How do you handle my data?",

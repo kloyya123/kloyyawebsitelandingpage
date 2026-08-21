@@ -30,14 +30,14 @@ const COLUMNS: { title: string; links: LinkItem[] }[] = [
     title: "Product",
     links: [
       { label: "Product Core", href: "/#product-core" },
-      { label: "Integrations", href: "/#integrations" },
+      { label: "How it works", href: "/#integrations" },
       { label: "Waitlist", href: "/#waitlist" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "Manifesto", href: "/#why" },
+      { label: "Build ledger", href: "/#ledger" },
       { label: "FAQ", href: "/#faq" },
       { label: "Contact", href: "mailto:contactsupport@kloyya.com" },
     ],

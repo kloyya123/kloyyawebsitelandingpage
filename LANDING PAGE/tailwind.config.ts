@@ -33,6 +33,16 @@ const config: Config = {
           100: "#E6F0FF",
           200: "#CFE3FF",
         },
+        // Dark canvas used only by the agent-flow demo section
+        flow: {
+          canvas: "#070C18", // section ground
+          raised: "#0E1729", // node / panel surface
+          sunk: "#0A1120", // recessed wells inside the panel
+          line: "#1C2B47", // hairline borders on the dark canvas
+          edge: "#24406E", // resting graph edge
+          text: "#93A4C4", // muted text on the dark canvas
+          bright: "#E8EEFB", // primary text on the dark canvas
+        },
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],

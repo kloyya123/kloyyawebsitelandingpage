@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Check, Loader2 } from "lucide-react";
 import { HEADCOUNT_OPTIONS } from "@/lib/schema";
@@ -20,13 +20,49 @@ export default function EnrichmentDrawer({
   const [headcount, setHeadcount] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [done, setDone] = useState(false);
+  const panel = useRef<HTMLElement>(null);
+  const closeBtn = useRef<HTMLButtonElement>(null);
 
-  // Close on Escape for keyboard users.
+  // Modal behaviour: Escape closes, Tab is trapped inside the panel, the page
+  // behind stops scrolling, and focus goes in on open and back out on close.
   useEffect(() => {
     if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+
+    const opener = document.activeElement as HTMLElement | null;
+    closeBtn.current?.focus();
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !panel.current) return;
+
+      const focusable = panel.current.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+      opener?.focus?.();
+    };
   }, [open, onClose]);
 
   const toggleTool = (tool: string) => {
@@ -68,6 +104,7 @@ export default function EnrichmentDrawer({
             onClick={onClose}
           />
           <motion.aside
+            ref={panel}
             className="relative flex h-full w-full max-w-[440px] flex-col overflow-y-auto bg-paper-raised shadow-lifted"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -84,6 +121,7 @@ export default function EnrichmentDrawer({
                 </h3>
               </div>
               <button
+                ref={closeBtn}
                 onClick={onClose}
                 aria-label="Close"
                 className="rounded-full p-1.5 text-slate transition-colors hover:bg-paper-sunk hover:text-ink"
@@ -108,6 +146,7 @@ export default function EnrichmentDrawer({
                       <button
                         key={tool}
                         type="button"
+                        aria-pressed={active}
                         onClick={() => toggleTool(tool)}
                         disabled={disabled}
                         className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
@@ -134,6 +173,7 @@ export default function EnrichmentDrawer({
                     <button
                       key={opt}
                       type="button"
+                      aria-pressed={headcount === opt}
                       onClick={() => setHeadcount(opt)}
                       className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
                         headcount === opt
