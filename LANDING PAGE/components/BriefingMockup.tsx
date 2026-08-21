@@ -15,13 +15,19 @@ const CONNECTED = [
   { label: "Jira", Icon: JiraIcon },
 ];
 
-const INBOX = [
+const INBOX: {
+  name: string;
+  initial: string;
+  subject: string;
+  time: string;
+  flagged?: boolean;
+}[] = [
+  { name: "Sarah Chen", initial: "S", subject: "Re: renewal terms — can we lock this in?", time: "6m", flagged: true },
   { name: "Christopher", initial: "C", subject: "Re: Q3 board deck — one more pass", time: "9m" },
   { name: "Whelman", initial: "W", subject: "Can you approve the vendor invoice?", time: "22m" },
   { name: "John", initial: "J", subject: "Client call moved to 4pm today", time: "41m" },
   { name: "Ram", initial: "R", subject: "Shared: updated pricing sheet", time: "1h" },
-  { name: "Sahil", initial: "S", subject: "Design review — 2 things need your call", time: "2h" },
-  { name: "Mark", initial: "M", subject: "Following up on the intro you made", time: "3h" },
+  { name: "Sahil", initial: "H", subject: "Design review — 2 things need your call", time: "2h" },
 ];
 
 export default function BriefingMockup() {
@@ -39,7 +45,7 @@ export default function BriefingMockup() {
       </div>
 
       {/* body */}
-      <div className="grid gap-5 bg-sky-50/60 p-6 sm:grid-cols-[148px_1fr] sm:p-6">
+      <div className="grid gap-5 bg-sky-50/60 p-3.5 sm:grid-cols-[148px_minmax(0,1fr)] sm:p-6">
         {/* connected tools panel */}
         <div className="hidden flex-col gap-3 sm:flex">
           <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-slate">
@@ -61,13 +67,13 @@ export default function BriefingMockup() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex min-w-0 flex-col gap-4">
           {/* ask bar */}
-          <div className="flex items-center gap-2 rounded-xl border border-ink/10 bg-white px-4 py-3 shadow-sm">
-            <span className="text-sm text-slate">
+          <div className="flex items-center gap-2 rounded-xl border border-ink/10 bg-white px-3 py-2.5 shadow-sm sm:px-4 sm:py-3">
+            <span className="min-w-0 flex-1 truncate text-[13px] text-slate sm:text-sm">
               Ask Kloyya what needs my attention today…
             </span>
-            <span className="ml-auto rounded-full bg-ink px-3 py-1 text-[11px] font-medium text-white">
+            <span className="shrink-0 rounded-full bg-ink px-3 py-1 text-[11px] font-medium text-white">
               Ask
             </span>
           </div>
@@ -84,7 +90,9 @@ export default function BriefingMockup() {
               {INBOX.map((m) => (
                 <div
                   key={m.name}
-                  className="flex items-center gap-3 px-4 py-2.5 text-left"
+                  className={`flex items-center gap-2.5 px-3 py-2.5 text-left sm:gap-3 sm:px-4 ${
+                    m.flagged ? "bg-sky-50" : ""
+                  }`}
                 >
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[11px] font-medium text-signal-deep">
                     {m.initial}
@@ -97,6 +105,11 @@ export default function BriefingMockup() {
                       {m.subject}
                     </p>
                   </div>
+                  {m.flagged ? (
+                    <span className="hidden shrink-0 rounded-full bg-signal/10 px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.1em] text-signal-deep min-[420px]:inline">
+                      Needs you
+                    </span>
+                  ) : null}
                   <span className="shrink-0 font-mono text-[10px] text-slate">
                     {m.time}
                   </span>

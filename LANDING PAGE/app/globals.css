@@ -41,13 +41,31 @@
       transition-duration: 0.001ms !important;
     }
 
-    /* Framer drives the hero signature with JS (immune to the rules above),
-       so force its elements to the fully-resolved state for reduced-motion users. */
-    .reasoning-thread * {
+    /* GSAP drives these scenes with JS (immune to the rules above). Each
+       component already skips its timeline under reduced motion; this is the
+       belt-and-braces pass that pins the animated hooks to their end state.
+       Only the hooks are listed — a blanket `*` here would also kill the
+       layout transforms these sections rely on (the scaled flow stage, the
+       -translate-x-1/2 blur blobs). */
+    .gsap-scene :is(
+      .hero-badge, .hero-line, .hero-copy, .hero-form, .hero-stage, .hero-flag,
+      .flow-source, .flow-node, .flow-agent, .flow-agent-glow, .flow-out,
+      .flow-trace-row, .flow-tool-row, .flow-decision,
+      .measure-tile, .ledger-row
+    ) {
       opacity: 1 !important;
       transform: none !important;
+    }
+
+    .gsap-scene .flow-edge {
       stroke-dasharray: none !important;
       stroke-dashoffset: 0 !important;
+    }
+
+    /* Travelling packets carry no information on their own — hide them entirely
+       rather than parking them mid-edge. */
+    .gsap-scene .flow-packet {
+      display: none !important;
     }
   }
 }

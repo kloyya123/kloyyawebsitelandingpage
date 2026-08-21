@@ -35,6 +35,9 @@ export default function FeatureSpotlight() {
               <p className="mt-2 text-[13px] leading-relaxed text-slate">
                 {p.action}
               </p>
+              <p className="mt-3 border-t border-ink/8 pt-3 text-[13px] leading-relaxed text-ink/80">
+                {p.benefit}
+              </p>
             </div>
           ))}
         </div>

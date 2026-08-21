@@ -14,16 +14,42 @@ export function GmailIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export function SlackIcon(props: SVGProps<SVGSVGElement>) {
+  // The pinwheel is eight shapes — four rounded bars and four rounded caps.
+  // The previous single-arc-per-colour version collapsed into blobs.
   return (
-    <svg viewBox="0 0 48 48" {...props}>
-      <path fill="#36C5F0" d="M18 6a4 4 0 1 1 4 4h-4z" />
-      <path fill="#36C5F0" d="M14 10a4 4 0 1 1 0 8H10a4 4 0 0 1 0-8z" />
-      <path fill="#2EB67D" d="M10 18a4 4 0 1 1-4-4v4z" />
-      <path fill="#2EB67D" d="M14 22a4 4 0 1 1 0-8v4a4 4 0 0 1 0 4z" />
-      <path fill="#ECB22E" d="M18 26a4 4 0 1 1-4-4h4z" />
-      <path fill="#ECB22E" d="M22 22a4 4 0 1 1 0 8h4a4 4 0 0 1-4-4z" />
-      <path fill="#E01E5A" d="M26 18a4 4 0 1 1 4 4v-4z" />
-      <path fill="#E01E5A" d="M22 14a4 4 0 1 1 0-8v4a4 4 0 0 1 0 4z" />
+    <svg viewBox="-1 -1 130 130" {...props}>
+      <path
+        fill="#E01E5A"
+        d="M27.2 80a13.9 13.9 0 0 1-13.9 13.9A13.9 13.9 0 0 1-.6 80a13.9 13.9 0 0 1 13.9-13.9h13.9V80z"
+      />
+      <path
+        fill="#E01E5A"
+        d="M34.2 80a13.9 13.9 0 0 1 13.9-13.9A13.9 13.9 0 0 1 62 80v34.8a13.9 13.9 0 0 1-13.9 13.9 13.9 13.9 0 0 1-13.9-13.9V80z"
+      />
+      <path
+        fill="#36C5F0"
+        d="M48.1 27.2a13.9 13.9 0 0 1-13.9-13.9A13.9 13.9 0 0 1 48.1-.6 13.9 13.9 0 0 1 62 13.3v13.9H48.1z"
+      />
+      <path
+        fill="#36C5F0"
+        d="M48.1 34.2a13.9 13.9 0 0 1 13.9 13.9A13.9 13.9 0 0 1 48.1 62H13.3A13.9 13.9 0 0 1-.6 48.1a13.9 13.9 0 0 1 13.9-13.9h34.8z"
+      />
+      <path
+        fill="#2EB67D"
+        d="M100.9 48.1a13.9 13.9 0 0 1 13.9-13.9 13.9 13.9 0 0 1 13.9 13.9A13.9 13.9 0 0 1 114.8 62h-13.9V48.1z"
+      />
+      <path
+        fill="#2EB67D"
+        d="M93.9 48.1A13.9 13.9 0 0 1 80 62a13.9 13.9 0 0 1-13.9-13.9V13.3A13.9 13.9 0 0 1 80-.6a13.9 13.9 0 0 1 13.9 13.9v34.8z"
+      />
+      <path
+        fill="#ECB22E"
+        d="M80 100.9a13.9 13.9 0 0 1 13.9 13.9A13.9 13.9 0 0 1 80 128.7a13.9 13.9 0 0 1-13.9-13.9v-13.9H80z"
+      />
+      <path
+        fill="#ECB22E"
+        d="M80 93.9A13.9 13.9 0 0 1 66.1 80 13.9 13.9 0 0 1 80 66.1h34.8a13.9 13.9 0 0 1 13.9 13.9 13.9 13.9 0 0 1-13.9 13.9H80z"
+      />
     </svg>
   );
 }
@@ -55,29 +81,37 @@ export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
 export function NotionIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" {...props}>
-      <rect width="48" height="48" rx="8" fill="#fff" stroke="#E5E7EB" />
-      <path
-        fill="#000"
-        d="M17 13l14-1c1.7-.1 2.1.9 2.1 2v20.3c0 .9-.3 1.4-1.2 1.5l-15.8 1c-1 .1-1.5-.3-1.9-1L11 30V16.2c0-1 .4-1.9 1.4-2l4.6-1.2z"
+      <rect
+        x="3"
+        y="3"
+        width="42"
+        height="42"
+        rx="7"
+        fill="#fff"
+        stroke="#E3E5E8"
+        strokeWidth="1.5"
       />
       <path
-        fill="#fff"
-        d="M19.8 17.5v13.9l1.9-.1V19.3l7.9 12.1 1.9-.1V15.8l-1.9.1v11.9l-7.9-12z"
+        fill="#101112"
+        d="M15.4 14.2h5.9l8.4 13.2V14.2h4.3v19.6h-5.7l-8.6-13.6v13.6h-4.3z"
       />
     </svg>
   );
 }
 
 export function JiraIcon(props: SVGProps<SVGSVGElement>) {
+  // One diamond with the centre knocked out via evenodd — the Jira silhouette.
+  // The old version stacked a 55%-opacity diamond behind a solid one, which
+  // just read as a muddy blue-on-blue smudge.
   return (
     <svg viewBox="0 0 48 48" {...props}>
-      <rect width="48" height="48" rx="8" fill="#0052CC" />
+      <rect width="48" height="48" rx="10" fill="#0052CC" />
       <path
         fill="#fff"
-        d="M24 12 13 23a3 3 0 0 0 0 4.2L24 38l11-10.8a3 3 0 0 0 0-4.2z"
-        opacity=".55"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 9 9.8 23.2a1.2 1.2 0 0 0 0 1.6L24 39l14.2-14.2a1.2 1.2 0 0 0 0-1.6L24 9zm0 10.7L19.7 24 24 28.3 28.3 24 24 19.7z"
       />
-      <path fill="#fff" d="M24 18l-6 6 6 6 6-6z" />
     </svg>
   );
 }
@@ -118,14 +152,30 @@ export function HubSpotIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 export function OutlookIcon(props: SVGProps<SVGSVGElement>) {
+  // Rebalanced: the old version sat off-centre in its viewBox (panels ran to
+  // x=44 of 48), so it leaned right next to the other marks in the row.
   return (
     <svg viewBox="0 0 48 48" {...props}>
-      <rect x="20" y="8" width="24" height="32" rx="2" fill="#0364B8" />
-      <rect x="24" y="12" width="16" height="10" fill="#28A8EA" />
-      <rect x="24" y="24" width="16" height="10" fill="#0078D4" />
-      <rect x="4" y="12" width="20" height="24" rx="2" fill="#0F6CBD" />
+      <rect x="20" y="10" width="24" height="28" rx="2.5" fill="#0364B8" />
+      <rect x="23" y="13" width="9" height="8" fill="#28A8EA" />
+      <rect x="33" y="13" width="8" height="8" fill="#0078D4" />
+      <rect x="23" y="23" width="9" height="8" fill="#14447D" />
+      <rect x="33" y="23" width="8" height="8" fill="#0F6CBD" />
+      <rect x="4" y="12" width="20" height="24" rx="3" fill="#0A5EA8" />
       <ellipse cx="14" cy="24" rx="6" ry="7" fill="#fff" />
-      <ellipse cx="14" cy="24" rx="3.6" ry="4.5" fill="#0F6CBD" />
+      <ellipse cx="14" cy="24" rx="3.3" ry="4.2" fill="#0A5EA8" />
+    </svg>
+  );
+}
+
+export function GoogleDriveIcon(props: SVGProps<SVGSVGElement>) {
+  // Triangle split into three wedges at the centroid — the Drive silhouette
+  // reduced to what still reads at 20px.
+  return (
+    <svg viewBox="0 0 48 48" {...props}>
+      <path fill="#FFBA00" d="M24 8l9 15.5L24 28l-9-4.5z" />
+      <path fill="#0066DA" d="M6 39l9-15.5L24 28v11z" />
+      <path fill="#00AC47" d="M42 39l-9-15.5L24 28v11z" />
     </svg>
   );
 }

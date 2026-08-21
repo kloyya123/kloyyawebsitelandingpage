@@ -13,8 +13,9 @@ sprint ledger and an honest onboarding flow.
 
 ## Stack
 
-Next.js 15 (App Router) · TypeScript · Tailwind · Framer Motion · react-hook-form + Zod ·
-Supabase (waitlist ledger) · Resend (welcome email).
+Next.js 15 (App Router) · TypeScript · Tailwind · GSAP + ScrollTrigger (the agent-flow
+demo) · Framer Motion (form + drawer) · react-hook-form + Zod · Supabase (waitlist
+ledger) · Resend (welcome email).
 
 ## Getting started
 
@@ -47,16 +48,29 @@ denies all public access by default.
 
 ## Editing content
 
-All copy and the transparency data live in `lib/content.ts` — integration directory, the
-"Under the Hood" pipeline, FAQ, and the **development sprint ledger** (update module statuses
-here as the build moves). No numbers are invented anywhere.
+All copy and the transparency data live in `lib/content.ts` — the integration directory
+(which also labels the connectors in `AgentFlow`), the "Under the Hood" pipeline, the FAQ,
+and the **development sprint ledger** rendered by `AnalysisLedger` (update module statuses
+here as the build moves).
+
+No performance number is invented anywhere. `AnalysisLedger` publishes the *definitions* of
+what we measure and the current build state, not scores — the numbers ship with their
+methodology or not at all. The `AgentFlow` walkthrough uses sample data and says so on the
+section label.
 
 ## Structure
 
 ```
-app/          layout, page, globals.css, server actions
-components/    Masthead, Hero, ReasoningThread, Pipeline, Integrations,
-               WaitlistForm, EnrichmentDrawer, SprintLedger, Manifesto, Faq, Footer
+app/          layout, page, globals.css, server actions, legal/privacy/terms/trust
+components/   Masthead, Hero, BriefingMockup, CapabilityGrid, IntegrationLogos,
+              AgentFlow, FeatureSpotlight, AnalysisLedger, Faq, CtaBand,
+              WaitlistForm, EnrichmentDrawer, Footer, Logo, BrandIcons, LegalShell
 lib/          schema (Zod), content, supabase client, email template
 supabase/     schema.sql
 ```
+
+`AgentFlow` is the page's signature: a scroll-triggered demo run that fans six
+connectors out across the processing components, converges them on one agent,
+and then exposes the agent's internal work — reasoning trace, tool calls, and
+the decision it hands back. It is driven by GSAP + ScrollTrigger and skips its
+timeline entirely under `prefers-reduced-motion`.
