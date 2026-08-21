@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
-const APP_URL = "https://kloyya-web-app-web.vercel.app";
+const APP_URL = "https://app.kloyya.com";
 
 const LOGIN_URL = `${APP_URL}/login`;
 
