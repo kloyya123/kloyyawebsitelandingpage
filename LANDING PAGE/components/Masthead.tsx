@@ -6,6 +6,8 @@ import { Logo } from "./Logo";
 
 const APP_URL = "https://kloyya-web-app-web.vercel.app";
 
+const LOGIN_URL = `${APP_URL}/login`;
+
 const LINKS = [
   { label: "Product Core", href: "/#product-core" },
   { label: "How it works", href: "/#integrations" },
@@ -18,34 +20,42 @@ export default function Masthead() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+    };
 
     onScroll();
 
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
     if (!open) return;
 
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         setOpen(false);
       }
     };
 
     window.addEventListener("keydown", onKey);
 
-    const prev = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = previousOverflow;
     };
   }, [open]);
+
+  const closeMobileMenu = () => {
+    setOpen(false);
+  };
 
   return (
     <header
@@ -56,6 +66,7 @@ export default function Masthead() {
       }`}
     >
       <div className="shell flex h-16 items-center justify-between">
+        {/* Logo */}
         <div className="flex items-center gap-4">
           <a
             href="/#top"
@@ -66,7 +77,11 @@ export default function Masthead() {
           </a>
         </div>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* Desktop navigation */}
+        <nav
+          className="hidden items-center gap-8 md:flex"
+          aria-label="Main navigation"
+        >
           {LINKS.map((link) => (
             <a
               key={link.href}
@@ -78,21 +93,22 @@ export default function Masthead() {
           ))}
         </nav>
 
+        {/* Desktop actions + mobile menu button */}
         <div className="flex items-center gap-2">
-          {/* Desktop Login */}
+          {/* Login */}
           <a
-            href={`${APP_URL}/login`}
+            href={LOGIN_URL}
             className="hidden text-sm text-slate transition-colors hover:text-ink sm:inline"
           >
             Login
           </a>
 
-          {/* Desktop Request Access */}
+          {/* Enter Kloyya */}
           <a
-            href={`${APP_URL}/login`}
+            href={LOGIN_URL}
             className="inline-flex h-9 items-center rounded-full bg-ink px-4 text-xs font-medium text-paper transition-transform hover:-translate-y-px active:translate-y-0"
           >
-            Request Access
+            Enter Kloyya
           </a>
 
           {/* Mobile menu */}
@@ -113,9 +129,11 @@ export default function Masthead() {
         </div>
       </div>
 
+      {/* Mobile navigation */}
       {open && (
         <nav
           id="mobile-nav"
+          aria-label="Mobile navigation"
           className="border-t border-ink/10 bg-paper/95 backdrop-blur-md md:hidden"
         >
           <ul className="shell flex flex-col py-2">
@@ -123,7 +141,7 @@ export default function Masthead() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={closeMobileMenu}
                   className="block border-b border-ink/8 py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
                 >
                   {link.label}
@@ -134,22 +152,22 @@ export default function Masthead() {
             {/* Mobile Login */}
             <li>
               <a
-                href={`${APP_URL}/login`}
-                onClick={() => setOpen(false)}
+                href={LOGIN_URL}
+                onClick={closeMobileMenu}
                 className="block border-b border-ink/8 py-3.5 text-[15px] text-ink/85 transition-colors hover:text-signal-deep"
               >
                 Login
               </a>
             </li>
 
-            {/* Mobile Request Access */}
+            {/* Mobile Enter Kloyya */}
             <li>
               <a
-                href={`${APP_URL}/login`}
-                onClick={() => setOpen(false)}
+                href={LOGIN_URL}
+                onClick={closeMobileMenu}
                 className="block py-3.5 text-[15px] font-medium text-ink transition-colors hover:text-signal-deep"
               >
-                Request Access
+                Enter Kloyya
               </a>
             </li>
           </ul>
